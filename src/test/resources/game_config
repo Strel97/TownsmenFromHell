@@ -1,0 +1,8 @@
+# --- ALL GAME CONFIGURATION IS HERE --- #
+# You may change it to change behavior of
+# any object of this game.
+
+# [- Screen config
+# [_______________
+FRAME_WIDTH     = 500
+FRAME_HEIGHT    = 500
