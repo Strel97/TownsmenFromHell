@@ -1,4 +1,4 @@
-package com.strel.townsmen.engine;
+package com.strel.townsmen.game.states;
 
 import java.awt.*;
 

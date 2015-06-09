@@ -1,15 +1,15 @@
-package com.strel.townsmen.engine.game;
+package com.strel.townsmen.game.states;
 
-import com.strel.townsmen.engine.GameState;
+import com.strel.townsmen.game.states.GameState;
 
 import java.awt.*;
 
 /**
  * Created by strel on 20.05.15.
  */
-public class GameRunning implements GameState {
+public class RunningState implements GameState {
 
-    public GameRunning() {
+    public RunningState() {
     }
 
     @Override
@@ -22,6 +22,6 @@ public class GameRunning implements GameState {
 
     @Override
     public boolean isComplete() {
-        return !Game.getInstance().isRunning();
+        return false;
     }
 }
