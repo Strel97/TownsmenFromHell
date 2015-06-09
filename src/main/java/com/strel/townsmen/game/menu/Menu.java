@@ -1,6 +1,9 @@
 package com.strel.townsmen.game.menu;
 
+import com.strel.townsmen.engine.GameConfig;
+import com.strel.townsmen.engine.GameFont;
 import com.strel.townsmen.engine.input.InputHandler;
+import com.strel.townsmen.game.TownsmenGame;
 
 import java.awt.*;
 
@@ -36,6 +39,17 @@ public class Menu {
         handleInput(null);
     }
 
+    public void drawAt(Graphics2D g, int x, int y) {
+        GameFont font = TownsmenGame.getInstance().getFont();
+
+        int y_step = y;
+        for (String option : options) {
+            font.draw(g, option, x, y_step);
+            y_step += GameConfig.MENU_OPTIONS_PADDING;
+        }
+    }
+
     public void draw(Graphics2D g) {
+
     }
 }

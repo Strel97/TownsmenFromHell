@@ -1,5 +1,7 @@
 package com.strel.townsmen.game.menu;
 
+import com.strel.townsmen.engine.GameConfig;
+
 import java.awt.*;
 
 /**
@@ -7,14 +9,11 @@ import java.awt.*;
  */
 public class MainMenu extends Menu {
 
-    private String[] options = {
-        "New Game",
-            "Quit"
-    };
-
-
     public MainMenu() {
-
+        options = new String[] {
+                "NEW GAME",
+                "EXIT"
+        };
     }
 
     public void handleInput() {
@@ -27,8 +26,6 @@ public class MainMenu extends Menu {
     }
 
     public void draw(Graphics2D g) {
-        /*
-        TODO: Drawing options via engine.Font class
-         */
+        super.drawAt(g, GameConfig.MENU_MAIN_X, GameConfig.MENU_MAIN_Y);
     }
 }

@@ -26,4 +26,11 @@ public interface GameConfig {
 
     public int FONT_IMG_DIGIT_X = 0;
     public int FONT_IMG_DIGIT_Y = 1;
+
+
+    // Menu config
+    public int MENU_OPTIONS_PADDING = 20;
+
+    public int MENU_MAIN_X = 160;
+    public int MENU_MAIN_Y = 80;
 }
