@@ -10,12 +10,11 @@ import java.io.IOException;
  */
 public class ImageLoader {
 
-
     public static BufferedImage loadImage(String filename) {
         BufferedImage img = null;
 
         try {
-            File file = new File("res/" + filename);
+            File file = new File(filename);
             if (file.exists())
                 img = ImageIO.read(file);
         }
@@ -24,8 +23,5 @@ public class ImageLoader {
         }
 
         return img;
-    }
-
-    public static void prepareImages() {
     }
 }

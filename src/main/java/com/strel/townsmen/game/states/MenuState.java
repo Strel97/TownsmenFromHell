@@ -1,6 +1,9 @@
 package com.strel.townsmen.game.states;
 
 
+import com.strel.townsmen.engine.GameFont;
+import com.strel.townsmen.game.TownsmenGame;
+
 import java.awt.*;
 
 /**
@@ -21,8 +24,8 @@ public class MenuState implements GameState {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.blue);
-        g.fillRect(10, 10, 200, 150);
+        GameFont font = TownsmenGame.getInstance().getFont();
+        font.draw(g, "HELLO", 10, 10);
     }
 
     @Override

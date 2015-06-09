@@ -1,6 +1,6 @@
 package com.strel.townsmen;
 
-import com.strel.townsmen.engine.game.Game;
+import com.strel.townsmen.game.TownsmenGame;
 
 import javax.swing.*;
 
@@ -9,7 +9,7 @@ import javax.swing.*;
  */
 public class Launcher {
     public static void main(String[] args) {
-        Game game = Game.getInstance();
+        TownsmenGame game = TownsmenGame.getInstance();
 
         JFrame frame = new JFrame("Townsmen Clone");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

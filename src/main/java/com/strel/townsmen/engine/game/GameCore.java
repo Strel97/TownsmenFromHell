@@ -2,32 +2,26 @@ package com.strel.townsmen.engine.game;
 
 import com.strel.townsmen.engine.GameConfig;
 import com.strel.townsmen.engine.GamePanel;
-import com.strel.townsmen.engine.GameState;
 import com.strel.townsmen.engine.input.InputHandler;
-import com.strel.townsmen.engine.utils.ImageLoader;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
  * Created by strel on 18.05.15.
  */
-public class Game implements Runnable {
+public class GameCore implements Runnable {
 
-    private static Game instance;
-
-    private GamePanel canvas;
-    private InputHandler input;
-    private BufferedImage img;
+    protected GamePanel canvas;
+    protected InputHandler input;
+    protected BufferedImage img;
 
     private boolean running;
     private Thread  thread;
     private int     fps;
 
-    private GameState state;
 
 
-    private Game() {
+    protected GameCore() {
         canvas = new GamePanel();
         input = new InputHandler();
 
@@ -36,22 +30,11 @@ public class Game implements Runnable {
         int width = Math.round(canvas.getWidth() / GameConfig.SCALE);
         int height = Math.round(canvas.getHeight() / GameConfig.SCALE);
         img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-
-        ImageLoader.prepareImages();
-    }
-
-    public static Game getInstance() {
-        if (instance == null)
-            instance = new Game();
-
-        return instance;
     }
 
     public void start() {
         if (running)
             return;
-
-        state = new GamePaused();
 
         running = true;
         thread = new Thread(this);
@@ -105,30 +88,12 @@ public class Game implements Runnable {
     }
 
     public void handleInput() {
-        if (input.isEscapePressed())
-            stop();
-        else if (input.isPkeyPressed())
-            setState(new GamePaused());
     }
 
     public void update(long elapsedTime) {
-        handleInput();
-
-        if (!state.isComplete())
-            state.update(elapsedTime);
-        else
-            changeState(state);
     }
 
     public void render() {
-        Graphics2D g = (Graphics2D) img.getGraphics();
-
-        canvas.render(g);
-        state.draw(g);
-
-        canvas.getGraphics().drawImage(img, 0, 0, canvas.getWidth(), canvas.getHeight(), null);
-
-        g.dispose();
     }
 
 
@@ -142,20 +107,5 @@ public class Game implements Runnable {
 
     public boolean isRunning() {
         return running;
-    }
-
-    public void changeState(GameState state) {
-        if (state instanceof GamePaused)
-            setState(new GameRunning());
-        else if (state instanceof  GameRunning)
-            setState(new GamePaused());
-    }
-
-    public void setState(GameState state) {
-        this.state = state;
-    }
-
-    public GameState getState() {
-        return state;
     }
 }
