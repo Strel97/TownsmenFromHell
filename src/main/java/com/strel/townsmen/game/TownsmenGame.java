@@ -3,6 +3,7 @@ package com.strel.townsmen.game;
 import com.strel.townsmen.engine.GameFont;
 import com.strel.townsmen.engine.game.GameCore;
 import com.strel.townsmen.game.states.MenuState;
+import com.strel.townsmen.game.states.RunningState;
 import com.strel.townsmen.game.states.StateMachine;
 
 import java.awt.*;
@@ -29,6 +30,10 @@ public class TownsmenGame extends GameCore {
         font = new GameFont("src/main/resources/font.png");
     }
 
+    public void newGame() {
+        state.setState(new RunningState());
+    }
+
     public static TownsmenGame getInstance() {
         if (instance == null)
             instance = new TownsmenGame();
@@ -37,6 +42,7 @@ public class TownsmenGame extends GameCore {
     }
 
     public void handleInput() {
+        input.poll();
         if (input.keyDown(KeyEvent.VK_ESCAPE))
             stop();
     }

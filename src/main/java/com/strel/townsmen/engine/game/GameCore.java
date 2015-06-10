@@ -1,6 +1,6 @@
 package com.strel.townsmen.engine.game;
 
-import com.strel.townsmen.engine.GameConfig;
+import com.strel.townsmen.game.GameConfig;
 import com.strel.townsmen.engine.GamePanel;
 import com.strel.townsmen.engine.input.InputHandler;
 

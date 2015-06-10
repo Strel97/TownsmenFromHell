@@ -1,8 +1,6 @@
 package com.strel.townsmen.game.states;
 
 
-import com.strel.townsmen.engine.GameFont;
-import com.strel.townsmen.game.TownsmenGame;
 import com.strel.townsmen.game.menu.MainMenu;
 import com.strel.townsmen.game.menu.Menu;
 
@@ -23,12 +21,9 @@ public class MenuState implements GameState {
         menu = new MainMenu();
     }
 
-    public void handleInput() {
-    }
-
     @Override
     public void update(long elapsedTime) {
-        handleInput();
+        menu.update(elapsedTime);
     }
 
     @Override

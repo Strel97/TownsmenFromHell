@@ -1,5 +1,7 @@
 package com.strel.townsmen.engine;
 
+import com.strel.townsmen.game.GameConfig;
+
 import javax.swing.*;
 import java.awt.*;
 

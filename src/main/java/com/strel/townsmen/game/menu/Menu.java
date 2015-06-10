@@ -1,11 +1,12 @@
 package com.strel.townsmen.game.menu;
 
-import com.strel.townsmen.engine.GameConfig;
+import com.strel.townsmen.game.GameConfig;
 import com.strel.townsmen.engine.GameFont;
 import com.strel.townsmen.engine.input.InputHandler;
 import com.strel.townsmen.game.TownsmenGame;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 /**
  * Created by strel on 09.06.15.
@@ -27,29 +28,32 @@ public class Menu {
      * so we implement it here.
      */
     public void handleInput(InputHandler input) {
-        /*
-        TODO: Navigation. Before must implement InputHandler.
-         */
+        if (input.keyDown(KeyEvent.VK_DOWN) && current != options.length - 1) {
+            current++;
+        }
+        else if (input.keyDown(KeyEvent.VK_UP) && current != 0) {
+            current--;
+        }
     }
 
     public void update(long elapsedTime) {
-        /*
-        TODO: Before must implement InputHandler.
-         */
-        handleInput(null);
+        handleInput(TownsmenGame.getInstance().getInputHandler());
     }
 
-    public void drawAt(Graphics2D g, int x, int y) {
+    public void drawOptions(Graphics2D g, int x, int y) {
         GameFont font = TownsmenGame.getInstance().getFont();
 
         int y_step = y;
         for (String option : options) {
+            // Pick out current option
+            if (option.equals(options[current]))
+                option = "> " + option;
+
             font.draw(g, option, x, y_step);
             y_step += GameConfig.MENU_OPTIONS_PADDING;
         }
     }
 
     public void draw(Graphics2D g) {
-
     }
 }
