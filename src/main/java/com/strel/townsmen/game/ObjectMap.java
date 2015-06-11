@@ -1,6 +1,7 @@
 package com.strel.townsmen.game;
 
 import com.strel.townsmen.game.objects.*;
+import com.strel.townsmen.game.objects.resources.Tree;
 import com.strel.townsmen.game.utils.IsometricConverter;
 
 import java.awt.*;

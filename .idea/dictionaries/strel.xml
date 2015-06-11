@@ -2,6 +2,7 @@
   <dictionary name="strel">
     <words>
       <w>coord</w>
+      <w>newgame</w>
     </words>
   </dictionary>
 </component>

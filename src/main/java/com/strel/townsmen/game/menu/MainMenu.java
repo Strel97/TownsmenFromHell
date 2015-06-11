@@ -18,8 +18,6 @@ public class MainMenu extends Menu {
     private static final int NEWGAME_OPTION = 0;
     private static final int EXIT_OPTION = 1;
 
-    private int selected;
-
 
     public MainMenu() {
         options = new String[] {

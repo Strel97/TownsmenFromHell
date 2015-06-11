@@ -27,6 +27,7 @@ public interface GameConfig {
     // Object map constants
     public int TREE_OBJ = 1;
     public int HOUSE_OBJ = 2;
+    public int STORAGE_OBJ = 3;
 
     public int OBJECT_MAP_Z = 11;
 
